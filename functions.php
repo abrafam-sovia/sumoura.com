@@ -836,12 +836,9 @@ function payguide_ng_inject_in_content_ads( $content ) {
 
         $new_content .= $block;
 
-        // Track open vs closed divs to prevent injecting inside a component card
-        $open_divs = substr_count( strtolower( $new_content ), '<div' );
-        $close_divs = substr_count( strtolower( $new_content ), '</div' );
-
-        // If we are cleanly outside any divs, this is a valid insertion point
-        if ( $open_divs === $close_divs && trim( wp_strip_all_tags( $block ) ) !== '' ) {
+        // If the block is not empty, it's a valid insertion point.
+        // We relax the strict div tracker because it blocks ads on posts wrapped in Gutenberg groups.
+        if ( trim( wp_strip_all_tags( $block ) ) !== '' ) {
             $valid_block_count++;
 
             // At valid block 4, inject the "Also Read" recirculation callout
