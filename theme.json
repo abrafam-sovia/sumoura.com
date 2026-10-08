@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "palette": [
+        { "slug": "primary", "color": "#0284c7", "name": "Primary Blue" },
+        { "slug": "primary-dark", "color": "#0369a1", "name": "Primary Dark" },
+        { "slug": "accent", "color": "#38bdf8", "name": "Accent Sky" },
+        { "slug": "dark", "color": "#0f172a", "name": "Dark Navy" },
+        { "slug": "dark-secondary", "color": "#1e293b", "name": "Dark Secondary" },
+        { "slug": "text-primary", "color": "#0f172a", "name": "Text Primary" },
+        { "slug": "text-secondary", "color": "#475569", "name": "Text Secondary" },
+        { "slug": "text-muted", "color": "#64748b", "name": "Text Muted" },
+        { "slug": "text-light", "color": "#94a3b8", "name": "Text Light" },
+        { "slug": "surface", "color": "#ffffff", "name": "Surface White" },
+        { "slug": "background", "color": "#f8fafc", "name": "Background" },
+        { "slug": "border", "color": "#e2e8f0", "name": "Border" },
+        { "slug": "border-light", "color": "#f1f5f9", "name": "Border Light" },
+        { "slug": "success", "color": "#22c55e", "name": "Success Green" },
+        { "slug": "danger", "color": "#ef4444", "name": "Danger Red" },
+        { "slug": "warning", "color": "#f59e0b", "name": "Warning Amber" },
+        { "slug": "info-bg", "color": "#e0f2fe", "name": "Info Background" }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Plus Jakarta Sans', sans-serif",
+          "slug": "plus-jakarta-sans",
+          "name": "Plus Jakarta Sans"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small", "size": "13px", "name": "Small" },
+        { "slug": "medium", "size": "16px", "name": "Medium" },
+        { "slug": "large", "size": "20px", "name": "Large" },
+        { "slug": "x-large", "size": "28px", "name": "Extra Large" },
+        { "slug": "xx-large", "size": "38px", "name": "2X Large" }
+      ]
+    },
+    "spacing": {
+      "units": ["px", "em", "rem", "%", "vw", "vh"]
+    },
+    "layout": {
+      "contentSize": "850px",
+      "wideSize": "1200px"
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "'Plus Jakarta Sans', sans-serif"
+    },
+    "color": {
+      "background": "#f8fafc",
+      "text": "#0f172a"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<div class="hp-desktop-container">
+  
+  <!-- Category Archive Header Banner -->
+  <div class="archive-header">
+    <span class="hp-hero-tag">PAYGUIDE TOPIC ARCHIVE</span>
+    <!-- wp:query-title {"type":"archive"} /-->
+    <!-- wp:term-description /-->
+  </div>
+
+  <div class="hp-main-layout">
+    <main class="clean-single-wrapper" style="margin: 0 !important;">
+      <!-- Articles Grid -->
+      <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+      <div class="wp-block-query">
+        <!-- wp:post-template -->
+          <!-- wp:group {"className":"hp-article-card"} -->
+          <div class="wp-block-group hp-article-card">
+            <!-- wp:post-featured-image {"isLink":true} /-->
+            <div class="card-meta-top">
+              <!-- wp:post-terms {"term":"category"} /-->
+              <!-- wp:post-date {"format":"M j, Y"} /-->
+            </div>
+            <!-- wp:post-title {"isLink":true} /-->
+            <!-- wp:post-excerpt {"moreText":"Read Article →"} /-->
+          </div>
+          <!-- /wp:group -->
+        <!-- /wp:post-template -->
+
+        <!-- wp:shortcode -->
+        [payguide_ad slot="infeed"]
+        <!-- /wp:shortcode -->
+
+        <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+        <div class="wp-block-query-pagination" style="margin-top:40px; display:flex; justify-content:center; gap:8px;">
+           <!-- wp:query-pagination-previous /-->
+           <!-- wp:query-pagination-numbers /-->
+           <!-- wp:query-pagination-next /-->
+        </div>
+        <!-- /wp:query-pagination -->
+      </div>
+      <!-- /wp:query -->
+    </main>
+
+    <!-- Right Column (Sticky Sidebar) -->
+    <aside class="hp-sidebar">
+      <!-- Premium Newsletter Widget -->
+      <div class="newsletter-widget">
+        <h4>📬 PayGuide Insider</h4>
+        <p>Join 10,000+ Nigerian remote workers getting weekly updates on working virtual cards and fx rates.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+          <input type="email" placeholder="Your best email..." required>
+          <button type="submit">Subscribe Free</button>
+        </form>
+      </div>
+      <!-- High-Yield Ad Space -->
+      <!-- wp:shortcode -->
+      [payguide_ad slot="sidebar"]
+      <!-- /wp:shortcode -->
+    </aside>
+  </div>
+
+</div>
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

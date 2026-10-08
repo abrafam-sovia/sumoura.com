@@ -1,0 +1,102 @@
+<!-- wp:html -->
+<footer class="pg-footer">
+  <div class="pg-footer-container">
+    <div>
+      <a href="/" class="pg-footer-brand">PayGuide <span>NG</span></a>
+      <p class="pg-footer-desc">Independent financial insights, virtual dollar card benchmarks, and cross-border payment solutions for freelancers, remote workers, and businesses in Nigeria.</p>
+    </div>
+    <div>
+      <div class="pg-footer-heading">Company</div>
+      <ul class="pg-footer-links">
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/editorial-policy">Editorial Policy &amp; Testing</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="pg-footer-heading">Legal &amp; Compliance</div>
+      <ul class="pg-footer-links">
+        <li><a href="/privacy-policy">Privacy &amp; Cookie Policy</a></li>
+        <li><a href="/disclaimer">Affiliate &amp; Financial Disclaimer</a></li>
+        <li><a href="/terms-of-service">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="pg-footer-bottom">
+    <div>&copy; 2026 PayGuide NG. All rights reserved.</div>
+    <div>Disclaimer: We independently benchmark financial products. We may earn an affiliate commission on partner links at zero extra cost to you.</div>
+  </div>
+</footer>
+
+<!-- Floating Attention-Grabbing Smartlink Notification Card -->
+<div id="pgFloatingSmartlink" class="pg-floating-card" style="display:none;">
+  <button class="pg-floating-close" onclick="dismissPgFloatingCard()" aria-label="Close">✕</button>
+  <div class="pg-floating-header">
+    <span class="pg-pulse-dot"></span>
+    <span class="pg-floating-badge">LIVE CARD RADAR</span>
+  </div>
+  <div class="pg-floating-msg" id="pgFloatingText">
+    ⚡ <strong>Chipper &amp; Grey USD Cards</strong> are active with 99% authorization on AWS &amp; Meta Ads today.
+  </div>
+  <a href="/fx-calculator/" id="pgFloatingCtaLink" class="pg-floating-btn">
+    🚀 Check Card Eligibility →
+  </a>
+</div>
+
+<script>
+(function() {
+  var messages = [
+    { text: '⚡ <strong>Chipper &amp; Grey USD Cards</strong> are active with 99% auth rates on AWS &amp; Meta Ads.', btn: '🚀 Check Card Eligibility →' },
+    { text: '🟢 <strong>1,420 Nigerian freelancers</strong> generated an instant virtual dollar card today.', btn: '👉 Get Verified Card →' },
+    { text: '🔒 <strong>Zero Dollar Limits:</strong> Fund up to $5,000/month directly with your Naira bank account.', btn: '⚡ Open Free Account →' },
+    { text: '📈 <strong>FX Alert:</strong> Lowest USD conversion fee recorded across tested virtual cards today.', btn: '🔍 Compare Live Rates →' }
+  ];
+  var msgIndex = 0;
+
+  function showFloatingCard() {
+    if (sessionStorage.getItem('pg_floating_dismissed') === '1') return;
+    var el = document.getElementById('pgFloatingSmartlink');
+    if (!el) return;
+    el.style.display = 'block';
+    setTimeout(function() { el.classList.add('pg-visible'); }, 50);
+
+    // Rotate messages every 12 seconds
+    setInterval(function() {
+      if (el.classList.contains('pg-visible')) {
+        msgIndex = (msgIndex + 1) % messages.length;
+        var textEl = document.getElementById('pgFloatingText');
+        var btnEl = document.getElementById('pgFloatingCtaLink');
+        if (textEl && btnEl) {
+          textEl.style.opacity = '0';
+          setTimeout(function() {
+            textEl.innerHTML = messages[msgIndex].text;
+            btnEl.innerHTML = messages[msgIndex].btn;
+            textEl.style.opacity = '1';
+          }, 250);
+        }
+      }
+    }, 12000);
+  }
+
+  window.dismissPgFloatingCard = function() {
+    var el = document.getElementById('pgFloatingSmartlink');
+    if (el) {
+      el.classList.remove('pg-visible');
+      setTimeout(function() { el.style.display = 'none'; }, 300);
+      sessionStorage.setItem('pg_floating_dismissed', '1');
+    }
+  };
+
+  // Trigger after 4 seconds or 250px scroll
+  var timer = setTimeout(showFloatingCard, 4000);
+  var scrolled = false;
+  window.addEventListener('scroll', function() {
+    if (!scrolled && window.scrollY > 250) {
+      scrolled = true;
+      clearTimeout(timer);
+      showFloatingCard();
+    }
+  }, { passive: true });
+})();
+</script>
+<!-- /wp:html -->
